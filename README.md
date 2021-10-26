@@ -5,7 +5,7 @@ This component was developed to demonstrate  developing approaches only!!!
 # Installation
 
 ```ssh
-composer require sipsystemgm/parser-command
+composer require sipsystemgm/parser-command-bundle
 ```
 ```php
 // config/bundles.php
