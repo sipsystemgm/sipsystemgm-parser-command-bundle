@@ -1,5 +1,5 @@
 {
-    "name": "sipsystemgm/parser-command",
+    "name": "sipsystemgm/parser-command-bundle",
     "description": "Simple parser command",
     "type": "bundle",
     "license": "MIT",
