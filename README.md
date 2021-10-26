@@ -51,5 +51,13 @@ MEMCACHED_PORT=11211
 ```
 
 ```ssh
-composer 
+php bin/console doctrine:migrations:diff
+php bin/console doctrine:migrations:migrate
+```
+
+# Run
+```ssh
+
+php bin/console parser https://some-host
+php bin/console doctrine:migrations:migrate
 ```

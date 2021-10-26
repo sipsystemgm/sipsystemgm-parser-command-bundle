@@ -17,7 +17,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 class ParserCommand extends Command
 {
-    protected static $defaultName = 'parser';
+    protected static $defaultName = 'sip:parser';
     protected static $defaultDescription = 'Image parser';
     private MessageBusInterface $bus;
 
@@ -34,8 +34,7 @@ class ParserCommand extends Command
             ->addArgument('deep', InputArgument::OPTIONAL, 'deep')
             ->addArgument('max-page', InputArgument::OPTIONAL, 'max-page')
             ->addOption('no-img-subdomain', null, InputOption::VALUE_NONE)
-            ->addOption('no-href-subdomain', null, InputOption::VALUE_NONE)
-        ;
+            ->addOption('no-href-subdomain', null, InputOption::VALUE_NONE);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -48,6 +47,18 @@ class ParserCommand extends Command
         $maxPage = $input->getArgument('max-page');
         $isNoHrefSubDomain = $input->getOption('no-href-subdomain');
         $isNoImageSubDomain = $input->getOption('no-img-subdomain');
+
+        if (!$isNoHrefSubDomain) {
+            $io->note("Parser will escape subdomains in link tags and won't save it!\n" .
+                "Use options --no-href-subdomain"
+            );
+        }
+
+        if (!$isNoImageSubDomain) {
+            $io->note("Parser will escape subdomains in images tags and won't save they!\n" .
+                "Use options --no-img-subdomain"
+            );
+        }
 
         if (empty($maxDeep)) {
             $maxDeep = 3;
