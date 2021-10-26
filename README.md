@@ -5,7 +5,7 @@ This component was developed to demonstrate  developing approaches only!!!
 # Installation
 
 ```ssh
-composer require sipsystemgm/parser-command-bundle
+% composer require sipsystemgm/parser-command-bundle
 ```
 ```php
 // config/bundles.php
@@ -34,7 +34,6 @@ framework:
 ```
 
 ```env
-
 # .env
 ###> symfony/messenger ###
 # Choose one of the transports below
@@ -51,13 +50,44 @@ MEMCACHED_PORT=11211
 ```
 
 ```ssh
-php bin/console doctrine:migrations:diff
-php bin/console doctrine:migrations:migrate
+% php bin/console doctrine:migrations:diff
+% php bin/console doctrine:migrations:migrate
 ```
 
 # Run
 ```ssh
+% php bin/console parser https://some-host
+% php bin/console doctrine:migrations:migrate
+```
 
-php bin/console parser https://some-host
-php bin/console doctrine:migrations:migrate
+# Testing
+## Configurations
+```ssh
+% composer require --dev phpunit/phpunit symfony/test-pack
+% cp .env.test .env.test.local
+% cp phpunit.xml.dist phpunit.xml
+```
+
+insert memcached block in file .env.test.local and set your parameters 
+if they are different
+
+```env
+##> memcached ###
+MEMCACHED_HOST=localhost
+MEMCACHED_PORT=11211
+##> memcached ##
+```
+
+insert test path directory in file  phpunit.xml
+```xml
+<testsuite name="Project Test Suite">
+    <directory>tests</directory>
+    ...
+    <directory>vendor/sipsystemgm/parser-command-bundle/tests</directory>
+ </testsuite>
+```
+
+# Run test
+```ssh
+% composer exec phpunit
 ```
