@@ -3,6 +3,8 @@
     "description": "Simple parser command",
     "type": "bundle",
     "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Sip\\ParserCommand\\": "src/"

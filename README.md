@@ -49,3 +49,7 @@ MEMCACHED_HOST=localhost
 MEMCACHED_PORT=11211
 ##> memcached ###
 ```
+
+```ssh
+composer 
+```
