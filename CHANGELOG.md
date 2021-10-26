@@ -1,3 +1,7 @@
+1.2.3
+
+* changed [composer.json] added php version
+
 1.2.2
 
 * feature [ParserCommand] notation information
