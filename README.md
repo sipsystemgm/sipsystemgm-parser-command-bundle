@@ -56,8 +56,10 @@ MEMCACHED_PORT=11211
 
 # Run
 ```ssh
-% php bin/console parser https://some-host
-% php bin/console doctrine:migrations:migrate
+# run php bin/console parser --help for more details
+
+% php bin/console parser https://some-host 4 20
+% php bin/console messenger:consume parser
 ```
 
 # Testing
